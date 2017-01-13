@@ -1,6 +1,6 @@
 {
   "name": "pg-parameters",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Postgres named parameters query library",
   "license": "MIT",
   "repository": "git@github.com:socsieng/pg-parameters.git",

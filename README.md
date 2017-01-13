@@ -30,6 +30,14 @@ const { rows } = await client.query(`
 `, [ 1 ]);
 ```
 
+## Installation
+
+Installation is done via `npm`. Example:
+
+```
+npm install --save pg-parameters
+```
+
 ## Other features
 
 Some of the other features include:
