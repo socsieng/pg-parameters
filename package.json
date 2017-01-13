@@ -1,0 +1,44 @@
+{
+  "name": "pg-query",
+  "version": "0.0.0",
+  "description": "Postgres named parameters query library",
+  "license": "MIT",
+  "repository": "",
+  "author": "socsieng@gmail.com",
+  "keywords": [
+    "postgres",
+    "parameters",
+    "query"
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "build": "npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
+    "test": "npm run build && mocha --compilers ts:ts-node/register --recursive src/**/*-spec.ts",
+    "watch": "npm run build -- --watch",
+    "watch:test": "npm run test -- --watch"
+  },
+  "dependencies": {
+    "node-fetch": "^1.6.3",
+    "pg": "^6.1.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.0.0",
+    "@types/mocha": "^2.0.0",
+    "@types/node": "6.0.31",
+    "chai": "^3.0.0",
+    "mocha": "^3.0.0",
+    "rimraf": "^2.0.0",
+    "ts-node": "^1.0.0",
+    "tslint": "^4.0.0",
+    "typescript": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
