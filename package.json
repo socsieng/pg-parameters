@@ -1,9 +1,9 @@
 {
   "name": "pg-query",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Postgres named parameters query library",
   "license": "MIT",
-  "repository": "",
+  "repository": "git@github.com:socsieng/pg-query.git",
   "author": "socsieng@gmail.com",
   "keywords": [
     "postgres",
@@ -21,10 +21,10 @@
     "build": "npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
     "test": "npm run build && mocha --compilers ts:ts-node/register --recursive src/**/*-spec.ts",
     "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch"
+    "watch:test": "npm run test -- --watch",
+    "prepublish": "npm run build"
   },
   "dependencies": {
-    "node-fetch": "^1.6.3",
     "pg": "^6.1.2"
   },
   "devDependencies": {
