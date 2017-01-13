@@ -1,8 +1,8 @@
-# Postgres Query
+# Postgres Parameters
 
-Postgres query library that supports named parameters.
+`pg-parameters` is a postgres client library that supports queries with named parameters.
 
-The `pg` module support parameterized queries, however, the queries need to be defined using ordinal parameters (`$1`, `$2`, etc.), and the parameters must be passed in as an array. The purpose of this library is allow queries to be defined and executed more intuitively using named parameters.
+The `pg` module supports parameterized queries, however, the queries need to be defined using ordinal parameters (`$1`, `$2`, etc.), and the parameters must be passed in as an array. The purpose of this library is enable queries to be defined and executed more intuitively using named parameters.
 
 This library uses parameter names preceded by a colon (`:`), example: `:parameter_name`.
 
