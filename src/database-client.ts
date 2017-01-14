@@ -14,6 +14,13 @@ export interface IPostgresOptions {
   idleTimeoutMillis?: number;
 }
 
+export interface IPostresQueryResponse {
+  command: string;
+  fields: any[];
+  rowCount: number;
+  rows: any[];
+}
+
 export default class DatabaseClient {
   private client: any;
   private pool: any;
@@ -22,7 +29,7 @@ export default class DatabaseClient {
     this.pool = new pg.Pool(postgresOptions);
   }
 
-  public async execute(query: string, parameters?: any): Promise<any> {
+  public async execute(query: string, parameters?: any): Promise<IPostresQueryResponse> {
     await this.ensureConnection();
 
     const queryObj = QueryBuilder.buildQuery(query, parameters);
