@@ -27,7 +27,6 @@ export default class DatabaseClient {
 
   constructor(postgresOptions: IPostgresOptions) {
     this.pool = new pg.Pool(postgresOptions);
-    this.withTransaction = this.withTransaction.bind(this);
   }
 
   /**
@@ -39,15 +38,15 @@ export default class DatabaseClient {
     let response: any;
     let success = false;
 
-    await this.client.execute('begin');
+    await this.client.query('begin');
     try {
       response = await fn();
       success = true;
     } finally {
       if (success) {
-        await this.client.execute('commit');
+        await this.client.query('commit');
       } else {
-        await this.client.execute('rollback');
+        await this.client.query('rollback');
       }
     }
 
