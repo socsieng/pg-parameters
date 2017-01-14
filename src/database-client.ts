@@ -27,6 +27,7 @@ export default class DatabaseClient {
 
   constructor(postgresOptions: IPostgresOptions) {
     this.pool = new pg.Pool(postgresOptions);
+    this.withTransaction = this.withTransaction.bind(this);
   }
 
   /**
