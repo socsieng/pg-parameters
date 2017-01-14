@@ -29,6 +29,30 @@ export default class DatabaseClient {
     this.pool = new pg.Pool(postgresOptions);
   }
 
+  /**
+   * Executes the passed in function within a transaction.
+   * @param fn  The actions to be executed as an atomic transaction.
+   * @returns   The result of `fn()`.
+   */
+  public async withTransaction(fn: () => Promise<any>): Promise<any> {
+    let response: any;
+    let success = false;
+
+    await this.client.execute('begin');
+    try {
+      response = await fn();
+      success = true;
+    } finally {
+      if (success) {
+        await this.client.execute('commit');
+      } else {
+        await this.client.execute('rollback');
+      }
+    }
+
+    return response;
+  }
+
   public async execute(query: string, parameters?: any): Promise<IPostresQueryResponse> {
     await this.ensureConnection();
 

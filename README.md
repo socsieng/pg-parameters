@@ -45,6 +45,7 @@ Some of the other features include:
 * table insertion using JavaScript objects
 * return `rows`/`row` directly from `query`/`querySingle` methods
   * the existing `pg` result is available using the `execute` method
+* transactions
 * `typescript` definitions
 
 ## Example
