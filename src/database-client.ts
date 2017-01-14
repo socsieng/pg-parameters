@@ -38,7 +38,9 @@ export default class DatabaseClient {
     let response: any;
     let success = false;
 
+    await this.ensureConnection();
     await this.client.query('begin');
+
     try {
       response = await fn();
       success = true;
